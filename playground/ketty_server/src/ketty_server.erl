@@ -13,7 +13,7 @@ order_cat(Pid, Name, Color, Description) ->
     Ref = erlang:monitor(process, Pid),
     Pid ! {self(), Ref, {order, Name, Color, Description}},
     receive
-        {Ref, Cat=#cat{}} ->
+        {Ref, Cat = #cat{}} ->
             erlang:demonitor(Ref,[flush]),
             Cat;
         {'DOWN', Ref, process, Pid, Reason} ->
@@ -39,6 +39,7 @@ close_shop(Pid) ->
 % start-link
 % ========================================================================================
 % Client API
+%% spawn_link(Fun) -> pid() Returns the process identifier of a new process started by the application of Fun to the empty list []. A link is created between the calling process and the new process, atomically. Otherwise works like spawn/3.
 start_link()->spawn_link(fun init/0).
 
 % Server function
