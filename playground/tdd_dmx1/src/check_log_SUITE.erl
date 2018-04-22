@@ -1,4 +1,6 @@
 -module(check_log_SUITE).
+-include_lib("common_test/include/ct.hrl").
+
 -export([all/0, init_per_suite/1, end_per_suite/1]).
 -export([check_restart_result/1, check_no_errors/1]).
 
@@ -15,7 +17,6 @@ init_per_suite(InitConfigData) ->
 
 end_per_suite(ConfigData) ->
     close_log(?value(logref, ConfigData)).
-
 
 % 
 check_restart_result(ConfigData) ->
