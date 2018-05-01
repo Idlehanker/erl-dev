@@ -1,0 +1,18 @@
+{application, bsc,
+ [{description, "Base Station Controller"},
+  {vsn, "1.0"},
+  {registered, [bsc_sup]},
+  {mod, { bsc_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    sasl
+   ]},
+  {env,[]},
+  {modules, [bsc_app,
+             bsc_sup]},
+
+  {maintainers, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.

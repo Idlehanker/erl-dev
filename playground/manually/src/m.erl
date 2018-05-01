@@ -1,2 +1,0 @@
--module(m).
--export([loop/0]).
